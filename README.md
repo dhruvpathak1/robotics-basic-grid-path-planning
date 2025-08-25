@@ -1,35 +1,38 @@
-# robotics-basic-grid-path-planning
+# Warehouse Robot Management System Design
 
-Q. Design an efficient Warehouse Robot Management System where multiple types of robots (Humanoid, Quadrotor, and Driver) navigate a grid to reach their respective destinations while avoiding collisions.
+## Objective
+Develop an efficient system that manages multiple types of robots—**Humanoid**, **Quadrotor**, and **Driver**—navigating a grid to reach their respective destinations while avoiding collisions.
 
-#### Grid Initialization:
-A square grid of size N x N is created.
-A set number of robots (2*N) are randomly placed on the grid.
-Robot Types & Properties:
-Each robot belongs to one of three types: Humanoid, Quadrotor, or Driver.
-Each robot has an initial and a destination position.
+## Grid Initialization
+- Create a square **N x N** grid.
+- Randomly place **2 × N** robots on the grid.
+- Each robot has a type, initial position, and destination.
 
-#### Movement Strategy:
-Robots move towards their destinations using a step-wise movement:
-First along the X-axis (horizontal movement).
-Then along the Y-axis (vertical movement).
-Euclidean distance is used to determine the shortest path.
+## Robot Types & Properties
+- Three types: Humanoid, Quadrotor, Driver
+- Each robot has a defined start location and target destination.
 
-#### Collision Avoidance Mechanism:
-If two robots attempt to move to the same position, priority is given based on:
-The robot closer to its destination continues moving.
-If both robots are at the same distance, a randomized decision (coin toss) determines which one moves.
+## Movement Strategy
+- Robots move stepwise towards destinations:
+  - First move horizontally along the X-axis.
+  - Then move vertically along the Y-axis.
+- Path chosen based on Euclidean distance for shortest route.
 
-#### Decider Function (decider()):
-Iterates through all robots and determines their next move.
-Calls movement functions (move_x() or move_y()) to update positions.
-Checks for collisions using collision_avoidance().
-Updates the grid and plots the new robot positions.
+## Collision Avoidance
+- If two robots attempt to move to the same position:
+  - Priority given to the robot closer to its destination.
+  - If distances are equal, movement is decided randomly (e.g., coin toss).
 
-#### Visualization:
-A matplotlib plot shows the robots' movements and final destinations.
-Different colors represent different robot types.
+## Decider Function (`decider()`)
+- Iterates over all robots to determine their next move.
+- Calls movement functions (`move_x()`, `move_y()`) to update positions.
+- Checks and resolves collisions through `collision_avoidance()`.
+- Updates the grid and visualizes new positions.
 
-#### Execution Flow:
-The system continuously updates positions in a loop until all robots reach their destinations.
-This ensures an efficient and collision-free robot navigation system in the warehouse environment.
+## Visualization
+- Uses **matplotlib** to plot robot movements and destinations.
+- Different colors represent different robot types.
+
+## Execution Flow
+- Continuously updates positions until all robots reach their destinations.
+- Ensures efficient, collision-free navigation within the warehouse grid.
